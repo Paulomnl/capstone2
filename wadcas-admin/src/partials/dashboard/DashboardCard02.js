@@ -9,7 +9,18 @@ import { tailwindConfig, hexToRGB } from '../../utils/Utils';
 
 function DashboardCard02() {
 
- 
+  const [count, setCount] = useState('');
+
+  const getCount = async () => {
+    let counter = await axios.get('http://localhost:5000/certificate/scan_docs');
+    setCount(counter.data);
+
+    console.log(count)
+  };
+
+  useEffect(() => {
+    getCount()
+  }, [count]); 
 
   return (
     <div className="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white shadow-lg rounded-sm border border-gray-200">
@@ -21,7 +32,7 @@ function DashboardCard02() {
         <h2 className="text-lg font-semibold text-gray-800 mb-2">Scanned Documents</h2>
         <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-gray-800 mr-2">Scanned documents: 45</div>
+          <div className="text-3xl font-bold text-gray-800 mr-2">Scanned documents: {count}</div>
         </div>
       </div>
     </div>

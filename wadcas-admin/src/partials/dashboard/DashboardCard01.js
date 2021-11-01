@@ -10,16 +10,19 @@ import { tailwindConfig, hexToRGB } from '../../utils/Utils';
 
 function DashboardCard01() {
   
-  // const [count, setCount] = useState('');
+  const [count, setCount] = useState('');
 
-  // const getCount = async () => {
-  //   let counter = await axios.get('http://localhost:5000/certificate/');
-  //   setCount(counter);
-  // };
+  const getCount = async () => {
+    let counter = await axios.get('http://localhost:5000/certificate/');
+    setCount(counter.data);
 
-  // useEffect(() => {
-  //   getCount();
-  // }, []); // triggered on route change
+    console.log(count)
+  };
+
+  useEffect(() => {
+    getCount()
+  }, [count]); 
+
 
   
 
@@ -35,7 +38,7 @@ function DashboardCard01() {
         <h2 className="text-lg font-semibold text-gray-800 mb-2">Certificates</h2>
         <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-gray-800 mr-2">Certificates created: 24</div>
+          <div className="text-3xl font-bold text-gray-800 mr-2">Certificates created: {count}</div>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ let Ssa = require('../models/ssa.model');
 let FirstSsa = require('../models/first_ssa.model');
 let SecondSsa = require('../models/second_ssa.model');
 let Chunk = require('../models/chunk.model');
+let ScanDoc = require('../models/scan_doc.model');
 
 // home
 router.route('/').get((req, res)=> {
@@ -13,6 +14,15 @@ router.route('/').get((req, res)=> {
     Certificate.find()
         .count()
         .then(certificate => res.json(certificate))
+        .catch(err => res.status(400).json('Error :' + err));
+
+});
+
+router.route('/scan_docs').get((req, res)=> {
+
+    ScanDoc.find()
+        .count()
+        .then(scan_docs => res.json(scan_docs))
         .catch(err => res.status(400).json('Error :' + err));
 
 });
@@ -104,7 +114,22 @@ router.route('/chunk/:keyOne').get( async (req, res)=> {
                             const check_cert = Certificate.findOne( { _id: item_check.cert_id }).then(
                                 final_result => {
                                     console.log('test_cert',final_result)
-                                    return res.json(final_result);
+
+                                    const check_scan = ScanDoc.find( { cert_id: item_check.cert_id }).then(
+                                        scan_result => {
+                                            console.log('scan', item_check)
+                                            if(scan_result.length !== 0){
+                                                console.log('Doc ALready scanned')
+                                            } else {
+                                                const newScan = new ScanDoc({cert_id: item_check.cert_id, fullname: final_result.fullname, document_type: final_result.document_type, program: final_result.program});
+                                                newScan.save();
+                                            }
+                                        }
+                                    ).catch(err => {
+                                        res.status(400).send(err);
+                                    });
+                                    
+                                    res.json(final_result);
                                 }
                             ).catch(err => {
                                 res.status(400).send(err);
@@ -122,26 +147,6 @@ router.route('/chunk/:keyOne').get( async (req, res)=> {
               console.log(err);
               return res.status(400).send(err);
           }
-            
-
-            // const check = Ssa.findOne({ secret: decode}).then(
-            //     item_check => {
-            //         console.log(item_check);
-            //         if(item_check && item_check !== null) {
-            //             const third_cert = Certificate.findOne( { cert_id: item_check.cert_id }).then(
-            //                 final_result => {
-            //                     return res.json(final_result);
-            //                 }
-            //             ).catch(err => {
-            //                 res.status(400).send(err);
-            //             });
-            //         } else {
-            //             res.status(400).send(err);
-            //         }
-            //     }
-            // ).catch(err => {
-            //     res.status(400).send(err);
-            // });
 
         }
     ).catch(err => {
