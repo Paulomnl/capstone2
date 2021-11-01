@@ -89,7 +89,7 @@ function Sidebar({
                     <path className={`fill-current text-gray-600 ${page === 'template01' && 'text-indigo-500'}`} d="M1 1h22v23H1z" />
                     <path className={`fill-current text-gray-400 ${page === 'template01' && 'text-indigo-300'}`} d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
                   </svg>
-                  <span className="text-sm font-medium">Certificate Template 01</span>
+                  <span className="text-sm font-medium">Certificate of Recognition</span>
                 </div>
               </NavLink>
             </li>
@@ -103,7 +103,7 @@ function Sidebar({
                     <path className={`fill-current text-gray-600 ${page === 'template02' && 'text-indigo-500'}`} d="M1 1h22v23H1z" />
                     <path className={`fill-current text-gray-400 ${page === 'template02' && 'text-indigo-300'}`} d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
                   </svg>
-                  <span className="text-sm font-medium">Certificate Template 02</span>
+                  <span className="text-sm font-medium">Seminars and Trainings</span>
                 </div>
               </NavLink>
             </li>
@@ -117,7 +117,7 @@ function Sidebar({
                     <path className={`fill-current text-gray-600 ${page === 'template03' && 'text-indigo-500'}`} d="M1 1h22v23H1z" />
                     <path className={`fill-current text-gray-400 ${page === 'template03' && 'text-indigo-300'}`} d="M15 10.586L16.414 12 11 17.414 7.586 14 9 12.586l2 2zM5 0h14v4H5z" />
                   </svg>
-                  <span className="text-sm font-medium">Certificate Template 03</span>
+                  <span className="text-sm font-medium">Diploma</span>
                 </div>
               </NavLink>
             </li>

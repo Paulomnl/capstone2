@@ -22,7 +22,7 @@ function Template03() {
 
         <h4 className="italic text-gray-800 text-center pt-4 font-serif">this</h4>
 
-        <h6 className="font-bold text-gray-800 text-6xl text-center font-sans">Certificate Of Deploma</h6>
+        <h6 className="font-bold text-gray-800 text-6xl text-center font-sans">Certificate Of Diploma</h6>
         <h4 className="italic text-gray-800 text-center font-serif">is proudly presented to</h4>
       </header>
 

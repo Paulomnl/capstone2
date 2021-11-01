@@ -21,7 +21,7 @@ function DashboardCard02() {
         <h2 className="text-lg font-semibold text-gray-800 mb-2">Scanned Documents</h2>
         <div className="text-xs font-semibold text-gray-400 uppercase mb-1">Total</div>
         <div className="flex items-start">
-          <div className="text-3xl font-bold text-gray-800 mr-2">Scanned docs: 45</div>
+          <div className="text-3xl font-bold text-gray-800 mr-2">Scanned documents: 45</div>
         </div>
       </div>
     </div>

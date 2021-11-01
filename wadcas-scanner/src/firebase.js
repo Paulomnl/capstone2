@@ -3,12 +3,12 @@ import "firebase/auth"
 import 'firebase/firestore'
 
 const app = firebase.initializeApp({
-  apiKey: "AIzaSyALU3UZB-fmqOdsRh7PUgspO5Gg0ND_5qI",
-    authDomain: "auth-development-8cf2b.firebaseapp.com",
-    projectId: "auth-development-8cf2b",
-    storageBucket: "auth-development-8cf2b.appspot.com",
-    messagingSenderId: "110637509097",
-    appId: "1:110637509097:web:03f1370403ad7987b78378"
+  apiKey: "AIzaSyBfU6eSZgZNgBD2R4tNwgNAGZ3vR5A9CDE",
+  authDomain: "capstone-b1415.firebaseapp.com",
+  projectId: "capstone-b1415",
+  storageBucket: "capstone-b1415.appspot.com",
+  messagingSenderId: "644222514859",
+  appId: "1:644222514859:web:026126365addf17faa69ee"
 })
 
 export const provider = new firebase.auth.GoogleAuthProvider();
